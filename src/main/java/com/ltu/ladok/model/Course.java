@@ -5,6 +5,7 @@ import lombok.*;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
@@ -23,10 +24,12 @@ public class Course {
     @Column(name = "course_id", updatable = false, nullable = false)
     private Long id;
 
+    @NotBlank(message = "Namn är obligatoriskt")
     @Basic
     @Column(name = "course_name")
     private String name;
 
+    @NotBlank(message = "Kurskod är obligatoriskt")
     @Basic
     @Column(name = "course_code")
     private String courseCode;
