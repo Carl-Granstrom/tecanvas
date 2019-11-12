@@ -1,4 +1,4 @@
-package com.ltu.epok.model;
+package com.ltu.ladok.model;
 
 import lombok.*;
 
@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Klassen representerar ett tillfälle då en kurs ges.
@@ -34,6 +35,9 @@ public class CourseInstance {
     @NotBlank(message = "termin krävs")
     @Column(name = "semester")
     private String semester;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Examination> examinations;
 
     @NotNull
     private LocalDate createdAt;

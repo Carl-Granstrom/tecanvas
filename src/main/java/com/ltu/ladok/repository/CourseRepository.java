@@ -1,6 +1,6 @@
-package com.ltu.epok.repository;
+package com.ltu.ladok.repository;
 
-import com.ltu.epok.model.Course;
+import com.ltu.ladok.model.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

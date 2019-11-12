@@ -1,4 +1,4 @@
-package com.ltu.epok.model;
+package com.ltu.ladok.model;
 
 
 import lombok.*;

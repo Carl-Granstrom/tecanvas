@@ -1,9 +1,9 @@
-package com.ltu.epok.controllers;
+package com.ltu.ladok.controllers;
 
-import com.ltu.epok.model.Course;
-import com.ltu.epok.model.CourseInstance;
-import com.ltu.epok.repository.CourseRepository;
-import com.ltu.epok.repository.CourseInstanceRepository;
+import com.ltu.ladok.model.Course;
+import com.ltu.ladok.model.CourseInstance;
+import com.ltu.ladok.repository.CourseRepository;
+import com.ltu.ladok.repository.CourseInstanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
