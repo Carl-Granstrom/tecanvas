@@ -1,15 +1,14 @@
-package com.ltu.ideal;
+package com.ltu.epok;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
-public class IdealApplication {
+public class EpokApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(IdealApplication.class, args);
+        SpringApplication.run(EpokApplication.class, args);
     }
 
 }

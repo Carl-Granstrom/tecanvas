@@ -1,19 +1,15 @@
-package com.ltu.ideal.controllers;
+package com.ltu.epok.controllers;
 
-import com.ltu.ideal.model.Course;
-import com.ltu.ideal.model.Student;
-import com.ltu.ideal.repository.CourseRepository;
-import com.ltu.ideal.repository.StudentRepository;
+import com.ltu.epok.model.Course;
+import com.ltu.epok.model.CourseInstance;
+import com.ltu.epok.repository.CourseRepository;
+import com.ltu.epok.repository.CourseInstanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 public class CourseController {
@@ -22,41 +18,39 @@ public class CourseController {
     private CourseRepository courseRepository;
 
     @Autowired
-    private StudentRepository studentRepository;
+    private CourseInstanceRepository courseInstanceRepository;
 
-
-    @GetMapping("/courses")
+    @GetMapping("/epok_courses")
     public List<Course> getAllCourses(){
         return courseRepository.findAll();
     }
 
-    @PostMapping("/courses")
+    @PostMapping("/epok_courses")
     public Course createCourse(@Valid @RequestBody Course course){
         return courseRepository.save(course);
     }
 
-    @GetMapping("/courses/{id}")
+    @GetMapping("/epok_courses/{id}")
     public Optional<Course> getCourseById(@PathVariable(value = "id") Long courseId){
         return courseRepository.findById(courseId);
-
     }
 
-    @GetMapping("/courses/bycode/{courseCode}")
+    @GetMapping("/epok_courses/bycode/{courseCode}")
     public Course getCourseByCourseCode(@PathVariable(value = "courseCode") String courseCode){
         return courseRepository.findByCourseCode(courseCode);
     }
 
     //TODO Modify to not return null but instead a 404
-    @GetMapping("/courses/bycode/{courseCode}/{ideal}")
-    public Student getCourseAndStudents(
+    @GetMapping("/epok_courses/bycode/{courseCode}/{semester}")
+    public String getSignupCode(
             @PathVariable(value = "courseCode") String courseCode,
-            @PathVariable(value = "ideal") String ideal){
-        Optional<Student> optionalStudent;
+            @PathVariable(value = "semester") String semester){
+        Optional<CourseInstance> optionalCourseInstance;
         Course course = courseRepository.findByCourseCode(courseCode);
-        List<Student> studentList = course.getStudents();
-        for (Student s : studentList) {
-            if (s.getIdeal().equals(ideal)) {
-                return s;
+        List<CourseInstance> courseInstanceList = course.getCourseInstances();
+        for (CourseInstance ci : courseInstanceList) {
+            if (ci.getSemester().equals(semester)) {
+                return ci.getSignupCode();
             }
         }
         return null;
@@ -69,5 +63,4 @@ public class CourseController {
             courseRepository.delete(c.get());
         }
     }
-
 }
