@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -17,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Course {
 
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "course_id", updatable = false, nullable = false)
     private Long id;
@@ -31,15 +32,24 @@ public class Course {
     private String courseCode;
 
     @OneToMany(fetch = FetchType.EAGER)
-    private List<CourseInstance> courseInstances;
+    @JoinColumn(name = "course_FK")
+    private Set<CourseInstance> courseInstances;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "course_FK")
+    private Set<StudentGrade> studentGrades;
 
     @NotNull
     private LocalDate createdAt;
 
-    public Course(String name, String courseCode, List<CourseInstance> courseInstances){
+    public Course(String name,
+                  String courseCode,
+                  Set<CourseInstance> courseInstances,
+                  Set<StudentGrade> studentGrades){
         this.name = name;
         this.courseCode = courseCode;
         this.courseInstances = courseInstances;
+        this.studentGrades = studentGrades;
     }
 
     // ********************** Accessor Methods ********************** //

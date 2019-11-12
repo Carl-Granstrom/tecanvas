@@ -1,6 +1,7 @@
 package com.ltu.ladok.model;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Examination {
 
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "examination_id", updatable = false, nullable = false)
     private Long id;
@@ -28,6 +29,11 @@ public class Examination {
     private String provnummer;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @Column(name = "student_grade")
-    private List<StudentGrade> studentGrade;
+    @JoinColumn(name = "examination_FK")
+    private List<StudentGrade> studentGrades;
+
+    public Examination(String provnummer, List<StudentGrade> studentGrades) {
+        this.provnummer = provnummer;
+        this.studentGrades = studentGrades;
+    }
 }

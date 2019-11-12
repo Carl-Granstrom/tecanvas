@@ -21,7 +21,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CourseInstance {
 
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "course_instance_id", updatable = false, nullable = false)
     private Long id;
@@ -37,13 +37,14 @@ public class CourseInstance {
     private String semester;
 
     @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "course_instance_FK")
     private List<Examination> examinations;
 
     @NotNull
     private LocalDate createdAt;
 
 
-    public CourseInstance(String signupCode, String semester) {
+    public CourseInstance(String signupCode, String semester, List<Examination> examinations) {
         this.signupCode = signupCode;
         this.semester = semester;
         this.createdAt = LocalDate.now();

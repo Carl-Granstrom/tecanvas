@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 public class CourseController {
@@ -47,7 +48,7 @@ public class CourseController {
             @PathVariable(value = "semester") String semester){
         Optional<CourseInstance> optionalCourseInstance;
         Course course = courseRepository.findByCourseCode(courseCode);
-        List<CourseInstance> courseInstanceList = course.getCourseInstances();
+        Set<CourseInstance> courseInstanceList = course.getCourseInstances();
         for (CourseInstance ci : courseInstanceList) {
             if (ci.getSemester().equals(semester)) {
                 return ci.getSignupCode();
