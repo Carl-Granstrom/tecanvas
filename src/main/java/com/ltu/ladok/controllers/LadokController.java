@@ -46,12 +46,22 @@ public class LadokController {
     }
 
     @GetMapping("/ladok_courses/submit/{courseCode}")
-    public String getAllCourses(@PathVariable(value = "courseCode") String courseCode,
+    public String getAllInstances(@PathVariable(value = "courseCode") String courseCode,
                                 Model model){
-        System.out.println(courseCode);
         model.addAttribute("course", courseRepository.findByCourseCode(courseCode));
         model.addAttribute("instances", courseInstanceRepository.findAll());
         return "list_instances";
+    }
+
+    @GetMapping("/ladok_courses/submit/{courseCode}/{semester}")
+    public String getAllStudents(@PathVariable(value = "courseCode") String courseCode,
+                                 @PathVariable(value = "semester") String semester,
+                                 Model model){
+        model.addAttribute("course", courseRepository.findByCourseCode(courseCode));
+        //TODO needs to grab the instances based on both coursecode and semester, not only semester
+        model.addAttribute("instance", courseInstanceRepository.findBySemester(semester));
+        model.addAttribute("examinations", examinationRepository.findAll());
+        return "list_examinations";
     }
 
 }

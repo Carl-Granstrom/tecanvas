@@ -37,7 +37,7 @@ public class CourseInstance {
     private String semester;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "course_instance_FK")
+    @JoinColumn(name = "course_instance_fk")
     private List<Examination> examinations;
 
     @NotNull
@@ -47,6 +47,7 @@ public class CourseInstance {
     public CourseInstance(String signupCode, String semester, List<Examination> examinations) {
         this.signupCode = signupCode;
         this.semester = semester;
+        this.examinations = examinations;
         this.createdAt = LocalDate.now();
     }
 

@@ -35,7 +35,7 @@ public class Course {
     private String courseCode;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "course_FK")
+    @JoinColumn(name = "course_fk")
     private Set<CourseInstance> courseInstances;
 
     @OneToMany(fetch = FetchType.EAGER)

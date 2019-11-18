@@ -18,7 +18,7 @@
             <div th:switch="${courses}" class="container my-5">
                 <p class="my-5">
                     <a href="/ladok_courses" class="btn btn-primary"><i
-                            class="fas fa-user-plus ml-2"> Add Student</i></a>
+                            class="fas fa-folder-plus ml-2">*uc*Add Course*uc*</i></a>
                 </p>
                 <div class="col-md-10">
                     <h2 th:case="null">No Courses yet!</h2>
@@ -36,8 +36,8 @@
                             <tr th:each="course : ${courses}">
                                 <td th:text="${course.name}"></td>
                                 <td th:text="${course.courseCode}"></td>
-                                <td><a th:href="@{/ladok_courses/submit/{courseCode}(courseCode=${course.courseCode})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
-                                <td><a th:href="@{/ladok_courses/delete/{id}(id=${course.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                                <td><a th:href="@{/ladok_courses/submit/{courseCode}(courseCode=${course.courseCode})}" class="btn btn-primary"><i class="fas fa-pen-fancy ml-2"></i></a></td>
+                                <td><a th:href="@{/ladok_courses/delete/{id}(id=${course.id})}" class="btn btn-primary"><i class="fas fa-calendar-times ml-2"></i></a></td>
                             </tr>
                             </tbody>
                         </table>

@@ -29,7 +29,7 @@ public class Examination {
     private String provnummer;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "examination_FK")
+    @JoinColumn(name = "examination_fk")
     private List<StudentGrade> studentGrades;
 
     public Examination(String provnummer, List<StudentGrade> studentGrades) {

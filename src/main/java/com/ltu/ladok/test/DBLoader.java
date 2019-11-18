@@ -87,6 +87,9 @@ public class DBLoader {
         examinationRepository.save(e2);
         examinationRepository.save(e3);
         List<Examination> examList1 = new ArrayList<>();
+        examList1.add(e1);
+        examList1.add(e2);
+        examList1.add(e3);
         //create first course instance
         CourseInstance ci1 = courseInstanceRepository.save(
                 new CourseInstance("LTU-12345", "HT18", examList1));
@@ -94,35 +97,55 @@ public class DBLoader {
         //Create StudentGrade objects
         StudentGrade sg9 = new StudentGrade("8309290313", "U");
         StudentGrade sg10 = new StudentGrade("8507200311", "G");
+        StudentGrade sg102 = new StudentGrade("8507200311", null);
+        StudentGrade sg103 = new StudentGrade("8507200311", null);
         studentGradeRepository.save(sg9);
         studentGradeRepository.save(sg10);
+        studentGradeRepository.save(sg102);
+        studentGradeRepository.save(sg103);
         List<StudentGrade> sgList4 = new ArrayList<>();
         sgList4.add(sg9);
         sgList4.add(sg10);
+        List<StudentGrade> sgList42 = new ArrayList<>();
+        sgList42.add(sg102);
+        List<StudentGrade> sgList43 = new ArrayList<>();
+        sgList43.add(sg103);
 
         //create examinations for 2nd course instance of Databaser 2
         Examination e4 = new Examination("0001", sgList4);
-        Examination e5 = new Examination("0002", new ArrayList<StudentGrade>());
-        Examination e6 = new Examination("0003", new ArrayList<StudentGrade>());
+        Examination e5 = new Examination("0002", sgList42);
+        Examination e6 = new Examination("0003", sgList43);
         examinationRepository.save(e4);
         examinationRepository.save(e5);
         examinationRepository.save(e6);
         List<Examination> examList2 = new ArrayList<>();
+        examList2.add(e4);
+        examList2.add(e5);
+        examList2.add(e6);
         //create second course instance
-        CourseInstance ci2 = courseInstanceRepository.save(
-                new CourseInstance("LTU-12346", "VT19", examList2));
+        CourseInstance ci2 = new CourseInstance("LTU-12346", "VT19", examList2);
+        courseInstanceRepository.save(ci2);
 
         //create student grades for the course
         StudentGrade sg11 = new StudentGrade("8309290313", "G");
         StudentGrade sg12 = new StudentGrade("8507200311", "VG");
         StudentGrade sg13 = new StudentGrade("9201010111", "U");
+        StudentGrade sg14 = new StudentGrade("7503112211", null);
+        StudentGrade sg15 = new StudentGrade("7110141222", null);
+        StudentGrade sg16 = new StudentGrade("5408181333", null);
         studentGradeRepository.save(sg11);
         studentGradeRepository.save(sg12);
         studentGradeRepository.save(sg13);
+        studentGradeRepository.save(sg14);
+        studentGradeRepository.save(sg15);
+        studentGradeRepository.save(sg16);
         Set<StudentGrade> sgList5 = new HashSet<>();
         sgList5.add(sg11);
         sgList5.add(sg12);
         sgList5.add(sg13);
+        sgList5.add(sg14);
+        sgList5.add(sg15);
+        sgList5.add(sg16);
 
         //create the course
         Set<CourseInstance> courseInstances1 = new LinkedHashSet<>();
