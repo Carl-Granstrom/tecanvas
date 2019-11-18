@@ -41,9 +41,17 @@ public class LadokController {
     @PostMapping("/ladok_courses")
     public String registerResult(@Valid Course course, BindingResult result, Model model) {
         if (result.hasErrors()) { return "add_course"; }
-
         courseRepository.save(course);
         return "redirect:list_courses";
+    }
+
+    @GetMapping("/ladok_courses/submit/{courseCode}")
+    public String getAllCourses(@PathVariable(value = "courseCode") String courseCode,
+                                Model model){
+        System.out.println(courseCode);
+        model.addAttribute("course", courseRepository.findByCourseCode(courseCode));
+        model.addAttribute("instances", courseInstanceRepository.findAll());
+        return "list_instances";
     }
 
 }
