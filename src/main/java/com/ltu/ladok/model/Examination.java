@@ -26,14 +26,14 @@ public class Examination {
 
     @Basic
     @Column(name = "provnummer")
-    private String provnummer;
+    private String provNummer;
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "examination_fk")
     private List<StudentGrade> studentGrades;
 
     public Examination(String provnummer, List<StudentGrade> studentGrades) {
-        this.provnummer = provnummer;
+        this.provNummer = provnummer;
         this.studentGrades = studentGrades;
     }
 }

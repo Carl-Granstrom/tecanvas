@@ -51,7 +51,7 @@ public class NativeQueryTest {
 
     @Test
     public void findByCourseInstanceIdAndSemesterTest() {
-        CourseInstance ci =  courseInstanceRepository.findByCourseInstanceIdAndSemester(27, "VT19");
+        CourseInstance ci =  courseInstanceRepository.findByCourseInstanceIdAndSemester(27L, "VT19");
         assertEquals("LTU-12346", ci.getSignupCode());
     }
 

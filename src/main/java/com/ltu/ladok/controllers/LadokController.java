@@ -39,14 +39,14 @@ public class LadokController {
     }
 
     @PostMapping("/ladok_courses")
-    public String registerResult(@Valid Course course, BindingResult result, Model model) {
+    public String postCourse(@Valid Course course, BindingResult result, Model model) {
         if (result.hasErrors()) { return "add_course"; }
         courseRepository.save(course);
         return "redirect:list_courses";
     }
 
     @GetMapping("/ladok_courses/submit/{courseCode}")
-    public String getAllInstances(@PathVariable(value = "courseCode") String courseCode,
+    public String getCourseInstances(@PathVariable(value = "courseCode") String courseCode,
                                 Model model){
         model.addAttribute("course", courseRepository.findByCourseCode(courseCode));
         model.addAttribute("instances", courseInstanceRepository.findAll());
@@ -54,14 +54,30 @@ public class LadokController {
     }
 
     @GetMapping("/ladok_courses/submit/{courseCode}/{semester}")
-    public String getAllStudents(@PathVariable(value = "courseCode") String courseCode,
+    public String getInstanceExaminations(@PathVariable(value = "courseCode") String courseCode,
                                  @PathVariable(value = "semester") String semester,
                                  Model model){
-        model.addAttribute("course", courseRepository.findByCourseCode(courseCode));
-        //TODO needs to grab the instances based on both coursecode and semester, not only semester
-        model.addAttribute("instance", courseInstanceRepository.findBySemester(semester));
-        model.addAttribute("examinations", examinationRepository.findAll());
+        Course course = courseRepository.findByCourseCode(courseCode);
+        model.addAttribute("course", course);
+        CourseInstance courseInstance = courseInstanceRepository.findByCourseInstanceIdAndSemester(course.getId(), semester);
+        model.addAttribute("instance", courseInstance);
+        model.addAttribute("examinations", examinationRepository.findByCourseInstanceId(courseInstance.getId()));
         return "list_examinations";
+    }
+
+    @GetMapping("/ladok_courses/submit/{courseCode}/{semester}/{provNummer}")
+    public String getCourseGrades(@PathVariable(value = "courseCode") String courseCode,
+                                  @PathVariable(value = "semester") String semester,
+                                  @PathVariable(value = "provNummer") String provnummer,
+                                  Model model){
+        Course course = courseRepository.findByCourseCode(courseCode);
+        model.addAttribute("course", course);
+        CourseInstance courseInstance = courseInstanceRepository.findByCourseInstanceIdAndSemester(course.getId(), semester);
+        model.addAttribute("instance", courseInstance);
+        model.addAttribute("exam", examinationRepository.findByCourseInstanceIdAndProvNummer(courseInstance.getId(), provnummer));
+        //TODO Fix this to only return the correct studentgrades by adding corect method to the StudentGradeRepository
+        model.addAttribute("student_grades", studentGradeRepository.findAll());
+        return "grades_form";
     }
 
 }

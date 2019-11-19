@@ -15,6 +15,6 @@ public interface CourseInstanceRepository extends JpaRepository<CourseInstance, 
     List<CourseInstance> findByCourseCode(@Param("courseId") int courseId);
 
     @Query(value = "SELECT * FROM course_instance WHERE course_fk = :courseId AND semester = :semester", nativeQuery = true)
-    CourseInstance findByCourseInstanceIdAndSemester(@Param("courseId") int courseId,
+    CourseInstance findByCourseInstanceIdAndSemester(@Param("courseId") Long courseId,
                                                 @Param("semester") String semester);
 }

@@ -15,52 +15,32 @@
 <div class="container my-2">
     <div class="card">
         <div class="card-body">
-            <div th:switch="${examinations}" class="container my-5">
+            <div th:switch="${student_grades}" class="container my-5">
                 <p class="my-5">
+                    <!-- Replace with proper link -->
                     <a th:href="@{/ladok_courses/submit/{courseCode}/{semester}(courseCode=${course.courseCode}, semester=${instance.semester})}" class="btn btn-primary"><i
                             class="fas fa-folder-plus ml-2">*uc*Add New Examination*uc*</i></a>
                 </p>
                 <div class="col-md-10">
-                    <h2 th:case="null">No Examinations Registered!</h2>
+                    <h2 th:case="null">No Grades Registered!</h2>
                     <div th:case="*">
-
-                        <table class="table table-striped table-responsive-md">
-                            <thead>
-                            <tr>
-                                <th>Kurs</th>
-                                <th>Betyg</th>
-                                <th>Delete</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td th:text="${#strings.escapeXml(course)}"></td>
-                                <!--/* Rework this to link to the grade reporting at course level page */-->
-                                <td><a th:href="@{/ladok_courses/submit/{courseCode}/(
-                                    courseCode=${course.courseCode}
-                                )}" class="btn btn-primary"><i class="fas fa-pen-fancy ml-2"></i></a></td>
-                                <!--/* Rework this to link to the correct page */-->
-                                <td><a th:href="@{/ladok_courses/submit/{courseCode}/delete(courseCode=${course.courseCode})}" class="btn btn-primary"><i class="fas fa-calendar-times ml-2"></i></a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-
                         <table class="table table-striped table-responsive-md">
                             <thead>
                             <tr>
                                 <th>Provnummer</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Personnummer</th>
                                 <th>Submit Grades</th>
-                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="exam : ${examinations}">
+                            <!-- WORKING HERE -->
+                            <tr th:each="studentGrade : ${student_grades}">
                                 <td th:text="${exam.provNummer}"></td>
-                                <td><a th:href="@{/ladok_courses/submit/{courseCode}/{semester}/{examination}(
-                                    courseCode=${course.courseCode},
-                                    semester=${instance.semester},
-                                    examination=${exam.provNummer}
-                                )}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                                <td th:text="${studentGrade.firstName}"></td>
+                                <td th:text="${studentGrade.lastName}"></td>
+                                <td th:text="${studentGrade.grade}"></td>
                                 <td><a th:href="@{/ladok_courses/submit/{courseCode}/{semester}/{examination}/delete(courseCode=${course.courseCode}, semester=${instance.semester}, examination=${exam.provNummer})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
                             </tr>
                             </tbody>

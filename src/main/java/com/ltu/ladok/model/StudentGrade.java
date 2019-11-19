@@ -7,7 +7,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
- * Klassen håller ett personnummer med tillhörande betyg för en examination.
+ * Klassen håller ett namn och ett personnummer med tillhörande betyg för en examination.
+ *
+ * TODO Domänmodellen behöver egentligen arbetas om så att denna information representeras av en
+ * TODO Student- och en Grade-klass istället. Det får ske i mån av tid, denna "platta" representation duger
+ * TODO tills vidare.
  *
  * @author Carl Granström
  */
@@ -25,6 +29,14 @@ public class StudentGrade {
     private Long id;
 
     @NotNull
+    @Column(name = "first_name")
+    private String firstName;
+
+    @NotNull
+    @Column(name = "last_name")
+    private String lastName;
+
+    @NotNull
     @Column(name = "personnummer")
     private String personnummer;
 
@@ -32,8 +44,10 @@ public class StudentGrade {
     @Column(name = "grade")
     private String grade;
 
-    public StudentGrade(String personnummer, String grade) {
+    public StudentGrade(String personnummer, String grade, String firstName, String lastName) {
         this.personnummer = personnummer;
         this.grade = grade;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 }

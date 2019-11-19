@@ -66,4 +66,9 @@ public class Course {
 
 
     // ********************** Common Methods ********************** //
+
+    @Override
+    public String toString(){
+        return this.name + " - " + this.courseCode;
+    }
 }

@@ -46,21 +46,21 @@ public class DBLoader {
         //Databaser 2 - D0005N
 
         //Create StudentGrade objects
-        StudentGrade sg1 = new StudentGrade("8309290313", "G");
-        StudentGrade sg2 = new StudentGrade("8507200311", "VG");
+        StudentGrade sg1 = new StudentGrade("8309290313", "G", "Carl", "Granström");
+        StudentGrade sg2 = new StudentGrade("8507200311", "VG", "Alfons", "Åberg");
         studentGradeRepository.save(sg1);
         studentGradeRepository.save(sg2);
 
-        StudentGrade sg3 = new StudentGrade("8309290313", "G");
-        StudentGrade sg4 = new StudentGrade("8507200311", "G");
-        StudentGrade sg5 = new StudentGrade("9201010111", "U");
+        StudentGrade sg3 = new StudentGrade("8309290313", "G", "Carl", "Granström");
+        StudentGrade sg4 = new StudentGrade("8507200311", "G", "Alfons", "Åberg");
+        StudentGrade sg5 = new StudentGrade("9201010111", "U", "Pelle", "Kanin");
         studentGradeRepository.save(sg3);
         studentGradeRepository.save(sg4);
         studentGradeRepository.save(sg5);
 
-        StudentGrade sg6 = new StudentGrade("8507200311", "VG");
-        StudentGrade sg7 = new StudentGrade("8309290313", "VG");
-        StudentGrade sg8 = new StudentGrade("9201010111", "VG");
+        StudentGrade sg6 = new StudentGrade("8507200311", "VG", "Alfons", "Åberg");
+        StudentGrade sg7 = new StudentGrade("8309290313", "VG", "Carl", "Granström");
+        StudentGrade sg8 = new StudentGrade("9201010111", "VG", "Pelle", "Kanin");
         studentGradeRepository.save(sg6);
         studentGradeRepository.save(sg7);
         studentGradeRepository.save(sg8);
@@ -95,10 +95,10 @@ public class DBLoader {
                 new CourseInstance("LTU-12345", "HT18", examList1));
 
         //Create StudentGrade objects
-        StudentGrade sg9 = new StudentGrade("8309290313", "U");
-        StudentGrade sg10 = new StudentGrade("8507200311", "G");
-        StudentGrade sg102 = new StudentGrade("8507200311", null);
-        StudentGrade sg103 = new StudentGrade("8507200311", null);
+        StudentGrade sg9 = new StudentGrade("8309290313", "U", "Carl", "Granström");
+        StudentGrade sg10 = new StudentGrade("8507200311", "G", "Alfons", "Åberg");
+        StudentGrade sg102 = new StudentGrade("8507200311", null, "Alfons", "Åberg");
+        StudentGrade sg103 = new StudentGrade("8507200311", null, "Alfons", "Åberg");
         studentGradeRepository.save(sg9);
         studentGradeRepository.save(sg10);
         studentGradeRepository.save(sg102);
@@ -127,12 +127,12 @@ public class DBLoader {
         courseInstanceRepository.save(ci2);
 
         //create student grades for the course
-        StudentGrade sg11 = new StudentGrade("8309290313", "G");
-        StudentGrade sg12 = new StudentGrade("8507200311", "VG");
-        StudentGrade sg13 = new StudentGrade("9201010111", "U");
-        StudentGrade sg14 = new StudentGrade("7503112211", null);
-        StudentGrade sg15 = new StudentGrade("7110141222", null);
-        StudentGrade sg16 = new StudentGrade("5408181333", null);
+        StudentGrade sg11 = new StudentGrade("8309290313", "G", "Carl", "Granström");
+        StudentGrade sg12 = new StudentGrade("8507200311", "VG", "Alfons", "Åberg");
+        StudentGrade sg13 = new StudentGrade("9201010111", "U", "Pelle", "Kanin");
+        StudentGrade sg14 = new StudentGrade("7503112211", null, "Klas", "Klättermus");
+        StudentGrade sg15 = new StudentGrade("7110141222", null, "Maja", "Gräddnos");
+        StudentGrade sg16 = new StudentGrade("5408181333", null, "Nils Karlson", "Pyssling");
         studentGradeRepository.save(sg11);
         studentGradeRepository.save(sg12);
         studentGradeRepository.save(sg13);
