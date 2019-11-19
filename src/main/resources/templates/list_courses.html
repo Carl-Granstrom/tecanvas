@@ -18,17 +18,17 @@
             <div th:switch="${courses}" class="container my-5">
                 <p class="my-5">
                     <a href="/ladok_courses" class="btn btn-primary"><i
-                            class="fas fa-folder-plus ml-2">*uc*Add Course*uc*</i></a>
+                            class="fas fa-folder-plus ml-2">*uc*Lägg till kurs*uc*</i></a>
                 </p>
                 <div class="col-md-10">
-                    <h2 th:case="null">No Courses yet!</h2>
+                    <h2 th:case="null">Inga kurser registrerade!</h2>
                     <div th:case="*">
                         <table class="table table-striped table-responsive-md">
                             <thead>
                             <tr>
-                                <th>Course Name</th>
-                                <th>Course Code</th>
-                                <th>Submit Grades</th>
+                                <th>Kursnamn</th>
+                                <th>Kurskod</th>
+                                <th>Registrera Betyg</th>
                                 <th>Delete</th>
                             </tr>
                             </thead>
