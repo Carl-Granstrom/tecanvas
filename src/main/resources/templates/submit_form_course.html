@@ -13,23 +13,19 @@
 
 <body>
 
-    <form th:action="@{/ladok_courses/submit/{courseCode}/{semester}/{examination}/{id}(
+<form th:action="@{/ladok_courses/submit/coursegrade/{courseCode}/{id}(
                                  courseCode=${course.courseCode},
-                                 semester=${instance.semester},
-                                 examination=${exam.provNummer},
                                  id=${grade.id}
-
                                  )}"
-          th:object="${formCommand}" method="post">
+      th:object="${formCommand}" method="post">
 
-        <p>Kurskod: <input type="text" th:value="${courseCode}" th:field="*{courseCode}"/></p>
-        <p>Termin: <input type="text" th:value="${semester}" th:field="*{semester}"/></p>
-        <p>Betyg: <input type="text" th:value="${grade}" th:field="*{grade}" /></p>
-        <p>Datum: <input type="text" th:value="${date}" th:field="*{date}" /></p>
-        <p>Förnamn: <input type="text" th:value="${firstName}" th:field="*{firstName}" /></p>
-        <p>Efternamn: <input type="text" th:value="${lastName}" th:field="*{lastName}" /></p>
-        <button type="submit" name="submit grade">Ändra</button>
-    </form>
+    <p>Kurskod: <input type="text" th:value="${courseCode}" th:field="*{courseCode}"/></p>
+    <p>Betyg: <input type="text" th:value="${grade}" th:field="*{grade}" /></p>
+    <p>Datum: <input type="text" th:value="${date}" th:field="*{date}" /></p>
+    <p>Förnamn: <input type="text" th:value="${firstName}" th:field="*{firstName}" /></p>
+    <p>Efternamn: <input type="text" th:value="${lastName}" th:field="*{lastName}" /></p>
+    <button type="submit" name="submit grade">Ändra</button>
+</form>
 
 </body>
 </html>

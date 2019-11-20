@@ -21,6 +21,7 @@
                     <a th:href="@{/ladok_courses/submit/{courseCode}/{semester}(courseCode=${course.courseCode}, semester=${instance.semester})}" class="btn btn-primary"><i
                             class="fas fa-folder-plus ml-2">*uc*Add New Examination*uc*</i></a>
                 </p>
+                <!-- The submit_form logic really could be moved here, but time is short and my html skills are lacking -->
                 <div class="col-md-10">
                     <h2 th:case="null">Inga betyg registrerade!</h2>
                     <div th:case="*">
@@ -30,18 +31,23 @@
                                 <th>Provnummer</th>
                                 <th>Förnamn</th>
                                 <th>Efternamn</th>
-                                <th>Personnummer</th>
+                                <th>Betyg</th>
                                 <th>Registrera betyg</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <!-- WORKING HERE -->
                             <tr th:each="studentGrade : ${student_grades}">
                                 <td th:text="${exam.provNummer}"></td>
                                 <td th:text="${studentGrade.firstName}"></td>
                                 <td th:text="${studentGrade.lastName}"></td>
                                 <td th:text="${studentGrade.grade}"></td>
-                                <td><a th:href="@{/ladok_courses/submit/{courseCode}/{semester}/{examination}/add(courseCode=${course.courseCode}, semester=${instance.semester}, examination=${exam.provNummer})}" class="btn btn-primary"><i class="fas fa-pen-fancy ml-2"></i></a></td>
+                                <td><a th:href="@{/ladok_courses/submit/{courseCode}/{semester}/{examination}/{id}(
+                                 courseCode=${course.courseCode},
+                                 semester=${instance.semester},
+                                 examination=${exam.provNummer},
+                                 id=${studentGrade.id}
+
+                                 )}" class="btn btn-primary"><i class="fas fa-pen-fancy ml-2"></i></a></td>
                             </tr>
                             </tbody>
                         </table>

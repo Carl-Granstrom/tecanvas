@@ -36,7 +36,7 @@
                             <tr>
                                 <td th:text="${#strings.escapeXml(course)}"></td>
                                 <!--/* Rework this to link to the grade reporting at course level page */-->
-                                <td><a th:href="@{/ladok_courses/submit/{courseCode}/(
+                                <td><a th:href="@{/ladok_courses/submit/coursegrade/{courseCode}/(
                                     courseCode=${course.courseCode}
                                 )}" class="btn btn-primary"><i class="fas fa-pen-fancy ml-2"></i></a></td>
                                 <!--/* Rework this to link to the correct page */-->

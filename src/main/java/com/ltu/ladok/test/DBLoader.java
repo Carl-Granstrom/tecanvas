@@ -17,6 +17,7 @@ import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWeb
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.util.*;
 
 /**
@@ -46,21 +47,21 @@ public class DBLoader {
         //Databaser 2 - D0005N
 
         //Create StudentGrade objects
-        StudentGrade sg1 = new StudentGrade("8309290313", "G", "Carl", "Granström");
-        StudentGrade sg2 = new StudentGrade("8507200311", "VG", "Alfons", "Åberg");
+        StudentGrade sg1 = new StudentGrade("8309290313", "G", "Carl", "Granström", LocalDate.now());
+        StudentGrade sg2 = new StudentGrade("8507200311", "VG", "Alfons", "Åberg", LocalDate.now());
         studentGradeRepository.save(sg1);
         studentGradeRepository.save(sg2);
 
-        StudentGrade sg3 = new StudentGrade("8309290313", "G", "Carl", "Granström");
-        StudentGrade sg4 = new StudentGrade("8507200311", "G", "Alfons", "Åberg");
-        StudentGrade sg5 = new StudentGrade("9201010111", "U", "Pelle", "Kanin");
+        StudentGrade sg3 = new StudentGrade("8309290313", "G", "Carl", "Granström", LocalDate.now());
+        StudentGrade sg4 = new StudentGrade("8507200311", "G", "Alfons", "Åberg", LocalDate.now());
+        StudentGrade sg5 = new StudentGrade("9201010111", "U", "Pelle", "Kanin", LocalDate.now());
         studentGradeRepository.save(sg3);
         studentGradeRepository.save(sg4);
         studentGradeRepository.save(sg5);
 
-        StudentGrade sg6 = new StudentGrade("8507200311", "VG", "Alfons", "Åberg");
-        StudentGrade sg7 = new StudentGrade("8309290313", "VG", "Carl", "Granström");
-        StudentGrade sg8 = new StudentGrade("9201010111", "VG", "Pelle", "Kanin");
+        StudentGrade sg6 = new StudentGrade("8507200311", "VG", "Alfons", "Åberg", LocalDate.now());
+        StudentGrade sg7 = new StudentGrade("8309290313", "VG", "Carl", "Granström", LocalDate.now());
+        StudentGrade sg8 = new StudentGrade("9201010111", "VG", "Pelle", "Kanin", LocalDate.now());
         studentGradeRepository.save(sg6);
         studentGradeRepository.save(sg7);
         studentGradeRepository.save(sg8);
@@ -95,10 +96,10 @@ public class DBLoader {
                 new CourseInstance("LTU-12345", "HT18", examList1));
 
         //Create StudentGrade objects
-        StudentGrade sg9 = new StudentGrade("8309290313", "U", "Carl", "Granström");
-        StudentGrade sg10 = new StudentGrade("8507200311", "G", "Alfons", "Åberg");
-        StudentGrade sg102 = new StudentGrade("8507200311", null, "Alfons", "Åberg");
-        StudentGrade sg103 = new StudentGrade("8507200311", null, "Alfons", "Åberg");
+        StudentGrade sg9 = new StudentGrade("8309290313", "U", "Carl", "Granström", LocalDate.now());
+        StudentGrade sg10 = new StudentGrade("8507200311", "G", "Alfons", "Åberg", LocalDate.now());
+        StudentGrade sg102 = new StudentGrade("8507200311", null, "Alfons", "Åberg", LocalDate.now());
+        StudentGrade sg103 = new StudentGrade("8507200311", null, "Alfons", "Åberg", LocalDate.now());
         studentGradeRepository.save(sg9);
         studentGradeRepository.save(sg10);
         studentGradeRepository.save(sg102);
@@ -127,12 +128,12 @@ public class DBLoader {
         courseInstanceRepository.save(ci2);
 
         //create student grades for the course
-        StudentGrade sg11 = new StudentGrade("8309290313", "G", "Carl", "Granström");
-        StudentGrade sg12 = new StudentGrade("8507200311", "VG", "Alfons", "Åberg");
-        StudentGrade sg13 = new StudentGrade("9201010111", "U", "Pelle", "Kanin");
-        StudentGrade sg14 = new StudentGrade("7503112211", null, "Klas", "Klättermus");
-        StudentGrade sg15 = new StudentGrade("7110141222", null, "Maja", "Gräddnos");
-        StudentGrade sg16 = new StudentGrade("5408181333", null, "Nils Karlson", "Pyssling");
+        StudentGrade sg11 = new StudentGrade("8309290313", "G", "Carl", "Granström", LocalDate.now());
+        StudentGrade sg12 = new StudentGrade("8507200311", "VG", "Alfons", "Åberg", LocalDate.now());
+        StudentGrade sg13 = new StudentGrade("9201010111", "U", "Pelle", "Kanin", LocalDate.now());
+        StudentGrade sg14 = new StudentGrade("7503112211", null, "Klas", "Klättermus", LocalDate.now());
+        StudentGrade sg15 = new StudentGrade("7110141222", null, "Maja", "Gräddnos", LocalDate.now());
+        StudentGrade sg16 = new StudentGrade("5408181333", null, "Nils Karlson", "Pyssling", LocalDate.now());
         studentGradeRepository.save(sg11);
         studentGradeRepository.save(sg12);
         studentGradeRepository.save(sg13);

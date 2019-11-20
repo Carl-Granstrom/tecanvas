@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 /**
  * Klassen håller ett namn och ett personnummer med tillhörande betyg för en examination.
@@ -29,6 +30,10 @@ public class StudentGrade {
     private Long id;
 
     @NotNull
+    @Column(name = "date")
+    private LocalDate date;
+
+    @NotNull
     @Column(name = "first_name")
     private String firstName;
 
@@ -44,10 +49,11 @@ public class StudentGrade {
     @Column(name = "grade")
     private String grade;
 
-    public StudentGrade(String personnummer, String grade, String firstName, String lastName) {
+    public StudentGrade(String personnummer, String grade, String firstName, String lastName, LocalDate date) {
         this.personnummer = personnummer;
         this.grade = grade;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.date = date;
     }
 }
