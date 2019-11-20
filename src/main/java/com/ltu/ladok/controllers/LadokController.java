@@ -21,6 +21,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * This class handles the entire grade update GUI.
+ *
+ * TODO Divide into several controllers if possible, the class is a bit bloated atm.
+ */
 @Controller
 public class LadokController {
 

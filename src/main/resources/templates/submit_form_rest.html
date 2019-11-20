@@ -13,18 +13,20 @@
 
 <body>
 
-<form action="#"
-      th:action="@{/ladok_courses/submit/coursegrade/{courseCode}/{semester}/{provNummer}/add}"
+<form th:action="@{/submit_form}"
       th:object="${formCommand}" method="post">
 
     <!-- All these are not needed in this version of the GUI since we already keep track of courseCode/semester -->
     <p>Kurskod: <input type="text" th:field="*{courseCode}" /></p>
     <p>Termin: <input type="text" th:field="*{semester}" /></p>
     <p>Ideal: <input type="text" th:field="*{ideal}" /></p>
+    <p>Provnummer: <input type="text" th:field="*{provNummer}" /></p>
+    <td th:if="${#fields.hasErrors('age')}" th:errors="*{provNummer}">Fel format för provnummer! Ange med fyra siffror: XXXX</td>
     <p>Betyg: <input type="text" th:field="*{grade}" /></p>
-    <p>Datum: <input type="text" th:field="*{date}" /></p>
+    <p>Datum(yyyy-MM-dd): <input type="date" th:field="*{date}" /></p>
     <p>Förnamn: <input type="text" th:field="*{firstName}" /></p>
     <p>Efternamn: <input type="text" th:field="*{lastName}" /></p>
+    <button type="submit" name="submit grade">Skicka Betyg</button>
 
 </form>
 

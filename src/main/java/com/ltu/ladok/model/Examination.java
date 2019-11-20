@@ -28,7 +28,7 @@ public class Examination {
     @Column(name = "provnummer")
     private String provNummer;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "examination_fk")
     private List<StudentGrade> studentGrades;
 
