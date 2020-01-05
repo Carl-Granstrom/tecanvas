@@ -1,14 +1,14 @@
-package com.ltu.ladok;
+package com.ltu.tecanvas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
-public class LadokApplication {
+public class TimeEditCanvas {
 
     public static void main(String[] args) {
-        SpringApplication.run(LadokApplication.class, args);
+        SpringApplication.run(TimeEditCanvas.class, args);
     }
 
 }
