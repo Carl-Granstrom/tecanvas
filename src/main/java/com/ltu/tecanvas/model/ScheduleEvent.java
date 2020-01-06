@@ -1,4 +1,4 @@
-package com.ltu.tecanvas.model.form;
+package com.ltu.tecanvas.model;
 
 import lombok.*;
 
@@ -13,14 +13,14 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Schedule {
+public class ScheduleEvent {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "course_id", updatable = false, nullable = false)
     private Long id;
 
-    //natural id?
+    //natural id? From TimeEdit
     private Long timeEditId;
 
     private LocalDate startDate;
@@ -30,6 +30,7 @@ public class Schedule {
 
     private LocalDate endDate;
 
+    //Uses the Epoch, todo think about conversion!
     private Time endTime;
 
     private String lokal;
@@ -40,6 +41,7 @@ public class Schedule {
 
     //Del 1 av "Kurs/Program, Kurs" i json-svar från TimeEdit
     private String kursKod;
+
     //Del 2 av "Kurs/Program, Kurs" i json-svar från TimeEdit
     private String kursNamn;
 
