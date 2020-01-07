@@ -7,13 +7,13 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-@Entity
+
 @Data
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CalendarEvent {
+public class CalendarEventTE {
     Long id;
     Date startdate;
     String starttime;

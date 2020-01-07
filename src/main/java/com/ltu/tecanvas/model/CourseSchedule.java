@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import java.util.List;
 
-@Entity
+
 @Data
 @Getter
 @Setter
@@ -14,5 +14,5 @@ import java.util.List;
 public class CourseSchedule {
     List<String> columnheaders;
     List<ResponseInfo> info;
-    List<CalendarEvent> reservations;
+    List<CalendarEventTE> reservations;
 }
