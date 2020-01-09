@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @Data
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class CalendarEventCanvas {
     String context_code;
     String location_name;
