@@ -20,7 +20,6 @@ public class CalendarEventCanvas {
     String title;
     LocalDateTime start_at;
     LocalDateTime end_at;
-    String description;
 
 
 }

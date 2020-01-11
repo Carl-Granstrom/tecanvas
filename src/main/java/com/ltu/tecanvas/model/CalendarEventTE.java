@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import java.sql.Time;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -15,9 +17,9 @@ import java.util.List;
 @AllArgsConstructor
 public class CalendarEventTE {
     Long id;
-    Date startdate;
+    String startdate;
     String starttime;
-    Date enddate;
+    String enddate;
     String endtime;
     List<String> columns;
 }
